@@ -49,43 +49,6 @@ public class BaseTest2 {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         //this will wait a maximum of 10 seconds for each execution or line of code
     }
-    public void longPressActions(WebElement element){
-        ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
-                ImmutableMap.of("elementId", ((RemoteWebElement)element).getId()));
-        //This does a long tap for 500ms
-    }
-    public void longPressActions(WebElement element, int time){
-        ((JavascriptExecutor)driver).executeScript("mobile: longClickGesture",
-                ImmutableMap.of("elementId", ((RemoteWebElement)element).getId(),"duration",time));
-        //This does long click on the element. The long tap lasts for 2 sec as we have mentioned the duration
-    }
-    public void scrollIntoView(String element){
-        driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+element+"\"));"));
-        //Use this when you know where to scroll
-    }
-    public void scrollToEndAction(int a,int b,int c,int d, String x){ //Use this when the target of scroll is
-        //not known
-        boolean canScrollMore = (Boolean)((JavascriptExecutor)driver).executeScript("mobile: scrollGesture"
-        ,ImmutableMap.of("left",a,"top",b,"width",c,"height",d, "direction",x,
-                        //x can be down or up or left or right
-         "percent",3.0));
-    }
-    public void swipeAction(WebElement element, String x,double y){
-        ((JavascriptExecutor)driver).executeScript("mobile: swipeGesture"
-                ,ImmutableMap.of("elementId",((RemoteWebElement)element).getId(),
-                        "direction",x,
-                        "percent",y)); //The value of y should be between 0 and 1
-    }
-    public void dragAndDropGesture(WebElement element,int x,int y){
-        ((JavascriptExecutor)driver).executeScript("mobile: dragGesture"
-                ,ImmutableMap.of("elementId",((RemoteWebElement)element).getId(),
-                "endX",x, "endY",y)); //Mention the coordinates by switching from select element modes
-    }
-    //This is called explicit wait
-    public void waitForAttributeContains(By locator, String attribute, String value, int time) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
-        wait.until(ExpectedConditions.attributeContains(driver.findElement(locator), attribute, value));
-    }
     public double getFormattedAmount(String x){
         double price =Double.parseDouble(x.substring(1));
         System.out.println("The actual value in the cart is "+x);

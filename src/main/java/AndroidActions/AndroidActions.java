@@ -3,9 +3,14 @@ package AndroidActions;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class AndroidActions {
     AndroidDriver driver;
@@ -43,5 +48,9 @@ public class AndroidActions {
         ((JavascriptExecutor)driver).executeScript("mobile: dragGesture"
                 ,ImmutableMap.of("elementId",((RemoteWebElement)element).getId(),
                         "endX",x, "endY",y)); //Mention the coordinates by switching from select element modes
+    }
+    public void waitForAttributeContains(By locator, String attribute, String value, int time) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+        wait.until(ExpectedConditions.attributeContains(driver.findElement(locator), attribute, value));
     }
 }
