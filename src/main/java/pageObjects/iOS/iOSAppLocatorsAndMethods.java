@@ -1,19 +1,19 @@
 package pageObjects.iOS;
 
-import IOSActions.iOSActions;
+import Utils.iOSActions;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class iOSAppLocatorsAndMethods { //extends iOSActions {
-//    IOSDriver driver;
-//    public iOSAppLocatorsAndMethods(IOSDriver driver){
-//        super(driver);
-//        this.driver = driver;
-//        PageFactory.initElements(new AppiumFieldDecorator(driver),this);
-//    }
+public class iOSAppLocatorsAndMethods extends iOSActions {
+    IOSDriver driver;
+    public iOSAppLocatorsAndMethods(IOSDriver driver){
+        super(driver);
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver),this);
+    }
     @iOSXCUITFindBy(accessibility = "Alert Views")
     private WebElement alertViews;
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Text Entry\"]")
@@ -28,6 +28,7 @@ public class iOSAppLocatorsAndMethods { //extends iOSActions {
     private WebElement messageContent;
     @iOSXCUITFindBy(accessibility = "Confirm")
     private WebElement confirmButton;
+
 
     public void clickAlertViews(){
         alertViews.click();

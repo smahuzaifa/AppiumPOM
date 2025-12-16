@@ -1,0 +1,41 @@
+public void configuringAppium() throws URISyntaxException, MalformedURLException {
+        //To Start the Appium Server automatically
+        service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users" +
+                        "\\huzai\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
+                .withIPAddress("127.0.0.1").usingPort(4723).build();
+        service.start();
+        //This mentions the path to main.js which starts the server and then passing the appium server
+        // url and then the port number
+
+        //Setting the device and its capabilites
+        UiAutomator2Options options = new UiAutomator2Options();
+        options.setDeviceName("Pixel 9 Pro"); //Emulator
+        options.setApp("C:\\Users\\huzai\\IdeaProjects\\Appium\\src\\test\\java\\resources\\ApiDemos-debug.apk");
+
+        //Creating androidDriver object
+        driver = new AndroidDriver(new URI("http://127.0.0.1:4723/").toURL(),options);
+
+
+        and for IOS
+        XCUITestOptions options = new XCUITestOptions();
+                options.setDeviceName("iPhone 17 Pro");
+                options.setApp("/Users/huzaifa/IdeaProjects/Appium/src/test/java/resources/UIKitCatalog.app");
+                options.setPlatformVersion("26.1");
+                options.setUdid("AB44849F-788D-480A-89A8-3A4DB94B2742");
+                //In iOS, we have to install web driver agent and then using that app and options the app is automated
+                options.setWdaLaunchTimeout(Duration.ofSeconds(20));
+
+                driver = new IOSDriver(new URI("http://127.0.0.1:4723").toURL(),options);
+
+
+It uses AppiumServiceBuilder in Java to programmatically start the Appium server by specifying the Node.js Appium main.js path, IP address (127.0.0.1), and port (4723). This allows the server to run as a background service without manual intervention.
+
+The UiAutomator2Options object sets up desired capabilities specifying the Android device or emulator ("Pixel 9 Pro") and the file path to the APK app under test. UiAutomator2 is the Android automation backend used by Appium to communicate with the device's UI elements via native frameworks.
+
+An AndroidDriver object is instantiated using the Appium server URL (“http://127.0.0.1:4723/”) combined with the device/app capabilities. The driver acts as the client in the Appium client-server architecture to send commands and receive responses over the WebDriver protocol.
+
+Internally, the Appium server receives these HTTP commands from the AndroidDriver client, translates them into UIAutomator2 commands on the Android device or emulator, executes UI interactions (like taps and text inputs), and sends back results to the client.
+
+This client-server architecture enables seamless, script-driven automation of Android apps with a clear separation between the test logic (client) and device interaction (server + native UI framework).
+
+This method encapsulates the full technical flow of an Appium Android test session startup: launching the server, configuring capabilities, and creating a driver that communicates with the server to automate mobile UI interactions on the specified device/emulator environment using the UIAutomator2 driver and WebDriver protocol.

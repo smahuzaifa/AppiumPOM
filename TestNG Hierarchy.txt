@@ -1,0 +1,49 @@
+TestNG Execution Annotation Sequence Example:
+
+    @BeforeSuite
+
+        @BeforeTest
+
+            @BeforeClass
+
+                @BeforeMethod
+
+                    @Test
+
+                @AfterMethod
+
+             @AfterClass
+
+        @AfterTest
+
+    @AfterSuite
+
+
+TestNG Annotation Hierarchy
+Suite Level
+
+@BeforeSuite: Runs once before all tests in the entire suite
+
+@AfterSuite: Runs once after all tests in the entire suite
+
+Test Level
+
+@BeforeTest: Runs before any test defined in a <test> tag (in your testng.xml)
+
+@AfterTest: Runs after all tests in a <test> tag
+
+Class Level
+
+@BeforeClass: Runs once before the first test method in the current class
+
+@AfterClass: Runs once after all test methods in the current class
+
+Method Level
+
+@BeforeMethod: Runs before each individual @Test method
+
+@AfterMethod: Runs after each individual @Test method
+
+Test Method
+
+@Test: The actual test case

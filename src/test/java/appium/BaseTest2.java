@@ -49,11 +49,6 @@ public class BaseTest2 {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         //this will wait a maximum of 10 seconds for each execution or line of code
     }
-    public double getFormattedAmount(String x){
-        double price =Double.parseDouble(x.substring(1));
-        System.out.println("The actual value in the cart is "+x);
-        return price;
-    }
 
     @AfterClass
     public void tearDown(){

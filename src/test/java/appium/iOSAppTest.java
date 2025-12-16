@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.iOS.iOSAppLocatorsAndMethods;
 
-public class iOSAppTest extends IOSBaseTest{
+public class iOSAppTest extends iOSBaseTest {
     @Test
     public void iOSAppTesting(){
         iOSAppLocatorsAndMethods io = new iOSAppLocatorsAndMethods(driver);
