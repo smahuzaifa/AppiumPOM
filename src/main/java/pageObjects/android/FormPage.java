@@ -6,9 +6,12 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class FormPage extends AndroidActions {
-    AndroidDriver driver;
+    private AndroidDriver driver;
     public FormPage(AndroidDriver driver){ //Constructor
         super(driver); //Calls the parent class constructors drivers
         this.driver=driver;
@@ -45,6 +48,15 @@ public class FormPage extends AndroidActions {
     }
     public void setLetsShopButton(){
         letsShopButton.click();
+    }
+    public void preSetup() {
+        String appPackage  = "com.androidsample.generalstore";
+        String appActivity = "com.androidsample.generalstore.MainActivity";
+        String intent = appPackage + "/" + appActivity;
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("intent", intent);
+        driver.executeScript("mobile: startActivity", params);
     }
 
 }
