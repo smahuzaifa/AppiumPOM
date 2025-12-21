@@ -1,7 +1,7 @@
-package appium;
+package appium.TestCases;
 
+import appium.BaseTests.BaseTest2;
 import org.openqa.selenium.By;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.android.FormPage;
@@ -9,6 +9,10 @@ import pageObjects.android.ProductCatalogue;
 
 public class EndToEndApplicationAndroid extends BaseTest2 {
     private FormPage fp;
+    public EndToEndApplicationAndroid() {
+        super();
+    }
+
 //    @BeforeMethod
 //    public void setActivity() {
 //        fp = new FormPage(driver);

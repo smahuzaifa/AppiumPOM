@@ -9,7 +9,7 @@ import org.openqa.selenium.remote.RemoteWebElement;
 public class iOSActions extends AppiumUtils {
     IOSDriver driver;
     public iOSActions(IOSDriver driver){
-        super(driver);
+        super();
         this.driver=driver;
     }
     public void longPressActions(WebElement element, int time){

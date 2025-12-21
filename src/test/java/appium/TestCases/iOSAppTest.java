@@ -1,5 +1,6 @@
-package appium;
+package appium.TestCases;
 
+import appium.BaseTests.iOSBaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.iOS.iOSAppLocatorsAndMethods;
