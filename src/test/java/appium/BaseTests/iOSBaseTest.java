@@ -24,7 +24,6 @@ public class iOSBaseTest extends AppiumUtils {
         options = getIOSOptions();
         //In iOS, we have to install web driver agent and then using that app and options the app is automated
         options.setWdaLaunchTimeout(Duration.ofSeconds(20));
-
         driver = new IOSDriver(new URI("http://127.0.0.1:4723/wd/hub").toURL(),options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }

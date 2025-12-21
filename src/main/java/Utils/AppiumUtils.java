@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.time.Duration;
 
@@ -23,20 +22,10 @@ public class AppiumUtils {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-    public double getFormattedAmount(String x){
-        double price =Double.parseDouble(x.substring(1));
-        System.out.println("The actual value in the cart is "+x);
-        return price;
-    }
-    public void waitForElementToAppear(WebElement ele,String x, String y){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.attributeContains((ele), x, y));
-    }
     public AppiumDriverLocalService startingAppium(){
         //To Start the Appium Server automatically
         String os = System.getProperty("os.name").toLowerCase();
         String appiumJSPath;
-
         if (os.contains("win")) {
             appiumJSPath = "C:\\Users\\huzai\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js";
         } else if (os.contains("mac")) {
@@ -44,7 +33,6 @@ public class AppiumUtils {
         } else {
             throw new RuntimeException("Unsupported OS: " + os);
         }
-
         service = AppiumDriverLocalService.buildService(
                 new AppiumServiceBuilder()
                         .withAppiumJS(new File(appiumJSPath))
@@ -68,4 +56,14 @@ public class AppiumUtils {
         options.setApp("/Users/huzaifa/IdeaProjects/AppiumPOM/src/test/java/resources/General-Store.apk");
         return options;
     }
+    public double getFormattedAmount(String x){
+        double price =Double.parseDouble(x.substring(1));
+        System.out.println("The actual value in the cart is "+x);
+        return price;
+    }
+    public void waitForElementToAppear(WebElement ele,String x, String y){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.attributeContains((ele), x, y));
+    }
+
 }
