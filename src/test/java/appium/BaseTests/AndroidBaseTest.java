@@ -12,7 +12,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Duration;
 
-public class BaseTest2 extends AppiumUtils {
+public class AndroidBaseTest extends AppiumUtils {
     protected AndroidDriver driver;
     public AppiumDriverLocalService service;
     protected UiAutomator2Options options;

@@ -1,13 +1,13 @@
 package appium.TestCases;
 
-import appium.BaseTests.BaseTest2;
+import appium.BaseTests.AndroidBaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.android.FormPage;
 import pageObjects.android.ProductCatalogue;
 
-public class EndToEndApplicationAndroid extends BaseTest2 {
+public class EndToEndApplicationAndroid extends AndroidBaseTest {
     private FormPage fp;
     public EndToEndApplicationAndroid() {
         super();
