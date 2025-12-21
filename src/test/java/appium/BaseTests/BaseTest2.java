@@ -17,9 +17,6 @@ public class BaseTest2 extends AppiumUtils {
     public AppiumDriverLocalService service;
     protected UiAutomator2Options options;
 
-    public BaseTest2() {
-    }
-
     @BeforeClass
     public void configuringAppium() throws URISyntaxException, MalformedURLException {
         service = startingAppium();

@@ -19,7 +19,7 @@ public class iOSBaseTest extends AppiumUtils {
     @BeforeClass
     public void configuringAppium() throws Exception {
         service = startingAppium();
-        //service.start();
+        service.start();
         //Android uses UiAutomator2
         options = getIOSOptions();
         //In iOS, we have to install web driver agent and then using that app and options the app is automated
@@ -32,6 +32,6 @@ public class iOSBaseTest extends AppiumUtils {
     @AfterClass
     public void tearDown(){
         driver.quit(); //Closes the app once automation is done
-        //service.stop();
+        service.stop();
     }
 }

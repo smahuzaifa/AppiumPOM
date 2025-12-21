@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class AndroidActions extends AppiumUtils{
-    AndroidDriver driver;
+    protected AndroidDriver driver;
     public AndroidActions(AndroidDriver driver) {
         super();
         this.driver = driver;

@@ -19,8 +19,6 @@ public class AppiumUtils {
     protected AppiumDriver driver;
     public AppiumDriverLocalService service;//Parent Driver which works with both android and iOS
     //This is grandparent which is shared between both android and iOS actions
-    public AppiumUtils(){
-    }
     public void init(AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

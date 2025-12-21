@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 public class iOSActions extends AppiumUtils {
-    IOSDriver driver;
+    protected IOSDriver driver;
     public iOSActions(IOSDriver driver){
         super();
         this.driver=driver;
