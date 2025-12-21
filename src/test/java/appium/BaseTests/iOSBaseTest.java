@@ -9,8 +9,6 @@ import org.testng.annotations.BeforeClass;
 
 import java.net.URI;
 import java.time.Duration;
-//    Command to start appium on macOS
-//    appium --port 4723 --address 127.0.0.1 --base-path /wd/hub --log-level debug --relaxed-security --allow-cors
 
 public class iOSBaseTest extends AppiumUtils {
     public IOSDriver driver;

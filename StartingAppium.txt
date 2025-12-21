@@ -1,0 +1,2 @@
+Command to start appium on macOS:
+appium --port 4723 --address 127.0.0.1 --base-path /wd/hub --log-level debug --relaxed-security --allow-cors
