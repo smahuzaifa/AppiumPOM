@@ -1,7 +1,10 @@
 package appium.TestCases;
 
 import appium.BaseTests.AndroidBaseTest;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.android.FormPage;
@@ -13,35 +16,34 @@ public class EndToEndApplicationAndroid extends AndroidBaseTest {
         super();
     }
 
-//    @BeforeMethod
-//    public void setActivity() {
-//        fp = new FormPage(driver);
+    @BeforeMethod
+    public void setActivity() {
+        fp = new FormPage(driver);
+        //fp.preSetup();
+    }
+
+//    @Test(dataProvider = "getData")
+//    public void FirstPage(String name, String country, String gender){
+//       FormPage fp = new FormPage(driver);
+////        @BeforeMethod creates a FormPage object and stores it in the field fp, so when FirstPage runs right after,
+////                it can reuse that same fp without calling new FormPage(driver) again.
+//        fp.setNameField(name);
+//        fp.setCountry(country).click();
+//        fp.setGender(gender);
+//        fp.setLetsShopButton();
 //        fp.preSetup();
 //    }
-
-    @Test(dataProvider = "getData")
-    public void FirstPage(String name, String country, String gender){
-       FormPage fp = new FormPage(driver);
-//        @BeforeMethod creates a FormPage object and stores it in the field fp, so when FirstPage runs right after,
-//                it can reuse that same fp without calling new FormPage(driver) again.
-        fp.setNameField(name);
-        fp.setCountry(country).click();
-        fp.setGender(gender);
-        fp.setLetsShopButton();
-        fp.preSetup();
-    }
-    @Test
-    public void FirstPage2(){
-        FormPage fp = new FormPage(driver);
+    @Test(priority = 1)
+    public void firstPage2(){
         fp.setNameField("Hello");
         fp.setCountry("Bermuda").click();
         fp.setGender("Female");
         fp.setLetsShopButton();
-        fp.preSetup();
+        //test.fail("Fail"); //In order to report failure
     }
-    @Test
+    @Test(priority = 2)
     public void addToCart(){
-        FirstPage2();
+        firstPage2();
         String shoe = "Air Jordan 9 Retro";
         ProductCatalogue pc = new ProductCatalogue(driver);
         pc.scrollIntoView(shoe);
