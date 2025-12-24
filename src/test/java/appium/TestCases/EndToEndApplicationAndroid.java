@@ -19,7 +19,7 @@ public class EndToEndApplicationAndroid extends AndroidBaseTest {
     @BeforeMethod
     public void setActivity() {
         fp = new FormPage(driver);
-        //fp.preSetup();
+        fp.preSetup();
     }
 
 //    @Test(dataProvider = "getData")
